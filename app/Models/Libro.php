@@ -12,4 +12,7 @@ class Libro extends Model
     {
         return $this->belongsTo(Categoria::class);//Pertenece a una categoría.
     }
+    public function etiquetas(){
+        return $this->belongsToMany(Etiqueta::class); // Muchos a muchos
+    }
 }
