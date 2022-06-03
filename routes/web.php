@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Para acceder a todos los libres de la ddbb.
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/',function (){
+    $libros = \App\Models\Libro::all();
+    return view('welcome', compact('libros'));
+});
